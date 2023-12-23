@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Usuários e Lucro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #00f; /* Azul */
+            font-size: 36px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin: 10px auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            color: #00a000; /* Verde */
+            cursor: pointer; /* Transforma o cursor em uma mãozinha ao passar o mouse */
+        }
+
+        canvas {
+            max-width: 100%;
+        }
+
+        #profitChartTitle {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #00f; /* Azul */
+        }
+
+        #profitChartContainer {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin: 10px auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo para o diálogo */
+        #userInfoDialog {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 60%;
+            max-width: 400px;
+            padding: 20px;
+            text-align: left;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        /* Estilo para o botão Fechar no diálogo */
+        #userInfoDialog button {
+            background-color: #00f; /* Azul */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo à Nossa Empresa</h1>
+
+    <p>Usuários Cadastrados</p>
+    <ul id="userList">
+        <!-- Usuários cadastrados com eventos de clique -->
+        <li onclick="mostrarInfoUsuario('carregando aguarde...)">Usuário 1</li>
+    </ul>
+
+    <!-- Diálogo para exibir informações do usuário (inicialmente oculto) -->
+    <div id="userInfoDialog" style="display: none;">
+        <h2>Informações do Usuário</h2>
+        <p><strong>Nome:</strong> <span id="userName"></span></p>
+        <p><strong>Saldo:</strong> <span id="userBalance"></span></p>
+        <button onclick="fecharDialog()">Fechar</button>
+    </div>
+
+    <div id="profitChartContainer">
+        <h2 id="profitChartTitle">Gráfico de Subida de Lucro</h2>
+        <canvas id="profitChart" width="800" height="400"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="oi.js"></script>
+</body>
+</html>

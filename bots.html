@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVIATOR-HACKER</title>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="AVIATOR-HACKER">
+     <link rel="icon" type="image/png" href="logo.png">
+    <meta property="og:description" content="App created with react. Our app is powered the.....">
+    <meta property="og:image" content="https://im.ge/i/PIl8kp">
+    <meta property="og:url" content="https://maind3kcjvj4ignt41amplifyapp.vercel.app/">
+     <link rel="stylesheet" type="text/css" href="indexs.css">
+     <link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+    <div id="userInfo">
+      Bem-vindo, <span id="userName"></span>!
+    </div>
+
+
+
+
+    <div id="contentContainer" style="display: none;">
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            body {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100vh;
+              margin: 0;
+              background-color: #282c34;
+            }
+        
+            button {
+              background-color: #000;
+              color: transparent;
+              border: none;
+              padding: 15px;
+              font-size: 18px;
+              margin: 10px;
+              cursor: pointer;
+              position: relative;
+              overflow: hidden;
+              text-align: center;
+              width: 240px;
+              display: block;
+              border: 3px solid #8e44ad;
+            }
+        
+            button span {
+              position: relative;
+              z-index: 2;
+            }
+        
+            button:hover {
+              color: violet;
+            }
+        
+            .led-animation {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background: radial-gradient(ellipse at center, #ffffff 0%, transparent 80%);
+              transform: rotate(30deg);
+              opacity: 0;
+              pointer-events: none;
+              z-index: 1;
+              animation: sonicAnimation 3s linear infinite;
+            }
+        
+            @keyframes sonicAnimation {
+              0%, 100% {
+                transform: rotate(0deg);
+              }
+              25% {
+                transform: rotate(90deg);
+              }
+              50% {
+                transform: rotate(180deg);
+              }
+              75% {
+                transform: rotate(270deg);
+              }
+            }
+          </style>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const buttons = document.querySelectorAll('button');
+              const led = document.createElement('span');
+              led.className = 'led-animation';
+              buttons.forEach(button => {
+                button.appendChild(led.cloneNode(true));
+        
+                button.addEventListener('click', function() {
+                  const buttonRef = button.getAttribute('data-ref');
+                  window.location.href = `${buttonRef}.html`;
+                });
+              });
+            });
+          </script>
+        </head>
+        <body>
+          <button data-ref="hackerbets"><span>HACKERBETS</span></button>
+          <button data-ref="winer"><span>BOT WINNER</span></button>
+          <button data-ref="aviator"><span>AVIATOR HACKER 007</span></button>
+          <button data-ref="mines"><span>MINES BOT</span></button>
+        </body>
+        </html>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Importar o arquivo JavaScript -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>  
+        <script src="js/firebase.js"></script>
+        <script src="js/admin.js"></script>
+     <script src="verificaEntrou.js"></script>
+        <script src="js/script_dashboard.js"></script>
+        <script src="index.js"></script>
+        
+        <script>
+            // Adicione o código JavaScript aqui
+            // Obtenha uma referência para o botão de logout
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            // Adicione um ouvinte de evento de clique ao botão de logout
+            logoutBtn.addEventListener('click', () => {
+                // Realiza o logout do usuário usando o Firebase Authentication
+                firebase.auth().signOut()
+                    .then(() => {
+                        // Logout bem-sucedido
+                        console.log('Usuário deslogado com sucesso');
+                        // Você pode redirecionar o usuário para a página de login ou executar outras ações aqui
+                    })
+                    .catch((error) => {
+                        // Ocorreu um erro durante o logout
+                        console.error('Erro ao fazer logout:', error);
+                    });
+            });
+        </script>
+    </div>
+</body>
+</html>
