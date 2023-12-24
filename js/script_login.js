@@ -23,5 +23,29 @@ loginForm.addEventListener('submit', function(event) {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.error('Erro ao fazer login:', errorCode, errorMessage);
+
+      // Exibir mensagem de erro no HTML usando Swal
+      Swal.fire({
+        title: 'LOGIN ERROR🚫',
+        html: 'Não foi possível fazer login. Verifique seu email ou senha e, caso não tenha uma conta, crie uma nova por 700.00 Mzn' +
+          '<br><br>' +
+          'Se o erro continuar, entre em contato com o suporte ou' +
+          '<br><br>' +
+          'Verifique sua conexão com a internet.' +
+          '<br><br>' +
+          'codigo de erro: ' + errorMessage,
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'Fechar',
+        cancelButtonText: 'Criar conta'
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.cancel) {
+          window.location.href = 'Pagamentos.html';
+        }
+      });
     });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Outras inicializações ou manipulações DOM podem ocorrer aqui
 });
