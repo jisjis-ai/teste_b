@@ -12,6 +12,9 @@
 </head>
 <body>   
     <main id="container">
+        <!-- Adicione uma div para exibir a mensagem de erro -->
+        <div id="error_message" style="display: none; color: red; margin-bottom: 10px;"></div>
+
         <form id="login_form">
             <!-- FORM HEADER -->
             <div id="form_header">
@@ -39,17 +42,17 @@
 
             <!-- INPUTS -->
             <div id="inputs">
-                <!-- NAME -->
-                <div class="input-box">
-                    <label for="name">
-                        Name
-                        <div class="input-field">
-                            <i class="fa-solid fa-user"></i>
-                            <input type="text" id="name" name="name">
-                        </div>
-                    </label>
-                </div>
-                
+                    <!-- NAME -->
+                    <div class="input-box">
+                        <label for="name">
+                            Name
+                            <div class="input-field">
+                                <i class="fa-solid fa-user"></i>
+                                <input type="text" id="name" name="name">
+                            </div>
+                        </label>
+                    </div>
+                    
                 <!-- EMAIL -->
                 <div class="input-box">
                     <label for="email">
@@ -88,10 +91,10 @@
     </main>
 
     <!-- JAVASCRIPT -->
-    <script id="65788d63c8e2700e1a52cade" src="https://dashboard.chatfuel.com/integration/entry-point.js" async defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="js/firebase.js"></script>
     <script src="js/script_login.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
