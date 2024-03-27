@@ -43,7 +43,7 @@ body {
 }
 .button-aviator {
 	margin: 8px;
-	background-color: #d30c0c;
+	background-color: hsl(64, 89%, 44%);
 	text-align: center;
 	padding: 10px 5px;
 	min-width: 370px;

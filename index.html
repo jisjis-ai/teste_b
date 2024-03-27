@@ -1,328 +1,119 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9447660499887398"
-     crossorigin="anonymous"></script>
-
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AVIATOR HACKER 9.0.0</title>
-     <meta property="og:title" content="AVIATOR HACKER 9.0.0">
-    <meta property="og:description" content="AVIATOR HACKERBETS Desde @2021 fazendo sucesso oferecemos os melhores bots de apostas online">
-    <meta property="og:image" content="https://telegra.ph/file-12-24-6">
-    <meta property="og:url" content="https://mozbots.com/">
-    
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="stylees.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            background-color: hsl(75, 100%, 50%);
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            color: #333;
         }
-
-        .container {
-            border: 1px solid hsl(0, 97%, 42%);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            margin: 30px auto;
+        #content {
+            max-width: 800px;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        h1 {
-            color: #007BFF;
+        h2 {
+            color: #001836;
             margin-bottom: 20px;
         }
-
-        #saldoUsuario {
-            font-size: 24px;
-            margin: 20px 0;
-            color: #28a745;
+        .user-info {
+            margin-bottom: 20px;
         }
-
-        button {
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            padding: 12px 24px;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 20px;
+        .email {
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .dialog {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .dialog button {
-            background-color: #007BFF;
-            color: #fff;
+        #logout-btn {
+            background-color: #001836;
+            color: white;
             border: none;
             padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 3px;
-            margin-top: 10px;
-        }
-
-        .dialog button:hover {
-            background-color: #0056b3;
-        }
-
-        #uidDisplay {
-            color: #333;
-            margin-top: 10px;
-            display: none;
-        }
-
-        .transacoes-container {
-            border: 1px solid hsl(145, 93%, 45%);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: hwb(314 8% 61%);
-        }
-
-        .transacoes h2 {
-            color: #007BFF;
-            margin-bottom: 20px;
-        }
-
-        .mensagem-transacao {
-            border: 1px solid #ddd;
             border-radius: 5px;
-            padding: 10px;
-            margin: 10px 0;
-            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+     
+        iframe {
+            width: 100%;
+            height: calc(100vh - 250px);
+            border: none;
         }
     </style>
+</head>
+<body>
+    <!-- Conteúdo -->
+    <div id="content">
+        <!-- Seção Home -->
+        <section id="home-section">
+            <h2>Home</h2>
+            <div class="user-info">
+                <div class="email">Email: <span id="email"></span></div>
+                <button id="logout-btn">Deslogar</button>
+            </div>
+            <iframe src="secreto.pdf"></iframe>
+        </section>
+    </div>
+
+    <!-- Navegação -->
+    <nav id="footer-nav">
+        <ul>
+            <li><a href="#" id="home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="bots.html" id="bots"><i class="fas fa-robot"></i> Bots</a></li>
+            <li><a href="perfil.html" id="perfil"><i class="fas fa-user"></i> Perfil</a></li>
+        </ul>
+    </nav>
+
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="js/firebase.js"></script>
-    <script src="js/admin.js"></script>
-        <script src="enter.js"></script>
-    <script src="js/script_dashboard.js"></script>
-    <script src="winer.js"></script>
-    <script src="index.js"></script>
-    <script src="saldo.js"></script>
-</head>
-<body>
-    <div class="container">
-        <!-- Saldo do Usuário -->
-        <h1>Bem-vindo</h1>
-        <p id="saldoUsuario">💎💎💎💎</p>
-
-        <!-- Adicionar Saldo -->
-        <button onclick="adicionarSaldo()">Adicionar DIMAS💎</button>
-
-        <!-- Verificar Saldo e Entrar -->
-<button onclick="verificarESeguir()">Entrar</button>
-
-
-
-        <!-- Diálogo de Saldo Insuficiente -->
-        <div id="saldoInsuficienteDialog" class="dialog">
-            <p id="saldoInsuficienteText">Saldo insuficiente. Adicione fundos para continuar.</p>
-            <p id="uidDisplay">id: <span id="userUid"></span></p>
-            <button onclick="copiarUid()">Copiar id</button>
-            <button onclick="fecharDialog()">Fechar</button>
-        </div>
-    </div>
-
-    <!-- Novo elemento para Transações -->
-    <div class="transacoes-container">
-        <div class="transacoes" id="listaTransacoes">
-            <h2>Últimas Transações</h2>
-            <!-- Aqui será adicionada a lista de transações -->
-        </div>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            obterSaldoUsuario();
-            carregarTransacoes();
+        // Verificar a validade da assinatura
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                firebase.database().ref('Conta/' + user.uid).once('value').then(function(snapshot) {
+                    var validade = snapshot.val().validade;
+                    var currentTime = new Date().getTime();
+                    if (parseFloat(validade) > currentTime) {
+                        // Assinatura válida
+                    } else {
+                        // Assinatura expirada
+                        var dialog = document.createElement('div');
+                        dialog.id = 'dialog';
+                        dialog.innerHTML = '<p>Sua assinatura expirou. Por favor, renove sua assinatura para continuar utilizando.</p>';
+                        document.body.appendChild(dialog);
+                        document.body.style.overflow = 'hidden'; // Impede que o usuário role a página
+                    }
+                }).catch(function(error) {
+                    console.log(error.message);
+                });
+
+                // Exibir o email do usuário
+                var userEmail = user.email;
+                document.getElementById('email').innerText = userEmail;
+
+                // Botão de logout
+                document.getElementById('logout-btn').addEventListener('click', function() {
+                    firebase.auth().signOut().then(function() {
+                        // Logout bem sucedido
+                        window.location.replace("login.html"); // Redirecionar para a página de login
+                    }).catch(function(error) {
+                        console.log(error.message);
+                    });
+                });
+            } else {
+                // Usuário não autenticado, redirecionar para a página de login
+                window.location.replace("login.html");
+            }
         });
-    
-        function adicionarSaldo() {
-            firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    const uid = user.uid;
-                    const usuarioRef = firebase.database().ref('users/' + uid);
-    
-                    usuarioRef.child('saldo').once('value').then((snapshot) => {
-                        const saldo = snapshot.val();
-    
-                        // Simulando a adição de saldo
-                        const novoSaldo = saldo + 0;
-                        usuarioRef.child('saldo').set(novoSaldo).then(() => {
-                            // Adicionando transação
-                            const descricao = `Depósito sem sucesso por favor contacte o suporte pra realizar a compra/ adionar creditos tentativa de deposito aos ${new Date().toLocaleString()}`;
-                            adicionarTransacao(descricao, novoSaldo);
-                            obterSaldoUsuario();
-                            carregarTransacoes();
-    
-                            // Redirecionando para a página "premium.html"
-                            window.location.href = 'premium.html';
-                        }).catch((error) => {
-                            console.error('Erro ao atualizar o saldo:', error);
-                        });
-                    }).catch((error) => {
-                        console.error('Erro ao obter saldo:', error);
-                    });
-                }
-            });
-        }
-
-        function verificarESeguir() {
-            firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    const uid = user.uid;
-                    const usuarioRef = firebase.database().ref('users/' + uid);
-
-                    usuarioRef.child('saldo').once('value').then((snapshot) => {
-                        const saldo = snapshot.val();
-
-                        if (saldo >= 3) {
-                            // Deduzindo 2 do saldo (simulado)
-                            const novoSaldo = saldo - 2;
-                            usuarioRef.child('saldo').set(novoSaldo).then(() => {
-                                // Adicionando transação
-                                const descricao = `Compra de 2 💎 na entidade MozServer em ${new Date().toLocaleString()}`;
-                                adicionarTransacao(descricao, novoSaldo);
-                                obterSaldoUsuario();
-                                carregarTransacoes();
-                                window.location.href = 'bots.html';
-                            }).catch((error) => {
-                                console.error('Erro ao atualizar o saldo:', error);
-                            });
-                        } else {
-                            abrirDialog();
-                        }
-                    }).catch((error) => {
-                        console.error('Erro ao obter saldo:', error);
-                    });
-                } else {
-                    console.log('Usuário não está autenticado.');
-                    window.location.href = '...html';
-                }
-            });
-        }
-
-        function abrirDialog() {
-            document.getElementById('saldoInsuficienteDialog').style.display = 'block';
-    
-            // Display user UID in the dialog
-            firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    document.getElementById('uidDisplay').style.display = 'block';
-                    document.getElementById('userUid').textContent = user.uid;
-                }
-            });
-        }
-
-        function fecharDialog() {
-            document.getElementById('saldoInsuficienteDialog').style.display = 'none';
-        }
-
-        function adicionarTransacao(descricao, novoSaldo) {
-            firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    const uid = user.uid;
-                    const transacoesRef = firebase.database().ref('transacoes/' + uid);
-
-                    // Geração de um ID aleatório para a transação
-                    const transacaoId = generateId();
-
-                    const novaTransacao = {
-                        id: transacaoId,
-                        descricao: descricao,
-                        data: new Date().toLocaleString(),
-                        saldo: novoSaldo
-                    };
-
-                    transacoesRef.child(transacaoId).set(novaTransacao).then(() => {
-                        console.log('Transação adicionada com sucesso.');
-                        carregarTransacoes(); // Adicionado para atualizar a lista de transações imediatamente
-                    }).catch((error) => {
-                        console.error('Erro ao adicionar transação:', error);
-                    });
-                }
-            });
-        }
-
-        function carregarTransacoes() {
-            firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    const uid = user.uid;
-                    const transacoesRef = firebase.database().ref('transacoes/' + uid);
-
-                    transacoesRef.once('value').then((snapshot) => {
-                        const transacoes = snapshot.val();
-
-                        const listaTransacoes = document.getElementById('listaTransacoes');
-                        listaTransacoes.innerHTML = '<h2>Últimas Transações</h2>';
-
-                        if (transacoes) {
-                            Object.values(transacoes).forEach((transacao) => {
-                                // Criando um elemento para cada mensagem de transação
-                                const mensagemTransacao = document.createElement('div');
-                                mensagemTransacao.className = 'mensagem-transacao';
-                                mensagemTransacao.textContent = `${transacao.descricao} em ${transacao.data}. Novo Saldo da mozbots é de: ${transacao.saldo}`;
-
-                                listaTransacoes.appendChild(mensagemTransacao);
-                            });
-                        } else {
-                            const p = document.createElement('p');
-                            p.textContent = 'Nenhuma transação realizada.';
-                            listaTransacoes.appendChild(p);
-                        }
-                    }).catch((error) => {
-                        console.error('Erro ao carregar transações:', error);
-                    });
-                }
-            });
-        }
-
-        // Função para gerar ID aleatório simples
-        function generateId() {
-            return '_' + Math.random().toString(36).substr(2, 9);
-        }
-
-        function copiarUid() {
-            const userUid = document.getElementById('userUid').textContent;
-            const tempInput = document.createElement('input');
-            tempInput.value = userUid;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-            alert('UID copiado para a área de transferência!');
-        }
     </script>
-    <script id="65788d63c8e2700e1a52cade" src="https://dashboard.chatfuel.com/integration/entry-point.js" async defer></script>
 </body>
 </html>

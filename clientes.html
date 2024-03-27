@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Conta</title>
+  <link rel="stylesheet" href="st.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+  <h1>Criar Conta</h1>
+  <button id="saldo-button" onclick="checkRevendedor()">Entrar como Revendedor</button>
+  <div id="saldo-container" style="display: none;">
+    <label for="saldo">Saldo do Revendedor:</label>
+    <span id="saldo"></span>
+  </div>
+  <form id="signup-form" style="display: none;">
+    <div>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required>
+    </div>
+    <div>
+      <label for="rdbConta">Tipo de Conta:</label>
+      <input type="radio" id="rdbConta" name="rdbConta" value="Conta" required>Conta
+      <input type="radio" id="rdbConta" name="rdbConta" value="Outro" required>Outro
+    </div>
+    <button type="submit">Criar Conta</button>
+  </form>
+
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/firebase.js"></script>
+  <script>
+    async function checkRevendedor() {
+      try {
+        const user = firebase.auth().currentUser;
+        if (!user) {
+          throw new Error('Usuário não autenticado.');
+        }
+
+        // Verificar se o usuário é um revendedor
+        const revendedorRef = firebase.database().ref('REVENDEDOR/' + user.uid + '/m');
+        revendedorRef.once('value', (snapshot) => {
+          const saldoText = snapshot.val();
+          if (saldoText === null || saldoText === '') {
+            // Usuário não é revendedor, exibir mensagem
+            Swal.fire({
+              title: 'Não é Revendedor',
+              text: 'Você não é um revendedor. Por favor, entre em contato conosco para obter mais informações sobre como se tornar um revendedor.',
+              icon: 'error',
+              confirmButtonText: 'OK'
+            });
+          } else {
+            // Exibir saldo do revendedor na página
+            const saldoElement = document.getElementById('saldo');
+            saldoElement.textContent = saldoText;
+            const saldoContainer = document.getElementById('saldo-container');
+            saldoContainer.style.display = 'block';
+
+            // Exibir formulário de criação de conta
+            const signupForm = document.getElementById('signup-form');
+            signupForm.style.display = 'block';
+          }
+        });
+      } catch (error) {
+        console.error('Erro ao verificar revendedor:', error);
+      }
+    }
+
+    const form = document.getElementById('signup-form');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nome = form['nome'].value;
+      const email = form['email'].value;
+      const senha = form['senha'].value;
+      const tipoConta = form['rdbConta'].value;
+
+      try {
+        const user = firebase.auth().currentUser;
+        if (!user) {
+          throw new Error('Usuário não autenticado.');
+        }
+
+        // Verificar se o saldo do revendedor é suficiente
+        const revendedorRef = firebase.database().ref('REVENDEDOR/' + user.uid + '/m');
+        revendedorRef.once('value', (snapshot) => {
+          const saldo = snapshot.val();
+          if (saldo === null || saldo === undefined || saldo < 10) {
+            // Saldo insuficiente, exibir mensagem
+            Swal.fire({
+              title: 'Saldo Insuficiente',
+              text: 'Seu saldo é insuficiente para criar uma nova conta. Por favor, recarregue seu saldo.',
+              icon: 'error',
+              confirmButtonText: 'OK'
+            });
+          } else {
+            // Deduzir 10 do saldo do revendedor
+            const novoSaldo = saldo - 10;
+
+            // Atualizar o saldo do revendedor no banco de dados
+            revendedorRef.set(novoSaldo);
+
+            // Salvar informações adicionais do usuário no Realtime Database
+            firebase.database().ref('Conta/' + user.uid).set({
+              nome: nome,
+              email: email,
+              senha: senha,
+              tipo: "Premium",
+              dia: 7,
+              status: "",
+              ban: "",
+              visto: "",
+              log: "",
+              bot: "",
+              saldo: novoSaldo, // Atualizar saldo com o novo valor
+              entrar: "",
+              uid: user.uid,
+              validade: Math.floor(Date.now() + (7 * 24 * 60 * 60 * 1000)).toString(),
+              tempo: Date.now().toString()
+            });
+
+            // Exibir diálogo de sucesso
+            Swal.fire({
+              icon: 'success',
+              title: 'Sucesso!',
+              text: 'Novo cliente adicionado com sucesso!',
+              showConfirmButton: false,
+              timer: 2000
+            });
+            
+            // Limpar o formulário após o sucesso
+            form.reset();
+          }
+        });
+      } catch (error) {
+        alert('Erro ao criar conta: ' + error.message);
+      }
+    });
+  </script>
+</body>
+</html>
