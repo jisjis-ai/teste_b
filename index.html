@@ -40,11 +40,40 @@
             border-radius: 5px;
             cursor: pointer;
         }
-     
-        iframe {
-            width: 100%;
-            height: calc(100vh - 250px);
-            border: none;
+
+        .welcome-message {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #001836;
+        }
+
+        .advertisement-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .advertisement {
+            flex: 1 0 calc(33.33% - 20px); /* 3 anúncios por linha com espaçamento de 20px */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .advertisement img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .advertisement p {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -58,7 +87,32 @@
                 <div class="email">Email: <span id="email"></span></div>
                 <button id="logout-btn">Deslogar</button>
             </div>
-            <iframe src="secreto.pdf"></iframe>
+            <div class="welcome-message">
+                Bem-vindo ao Hackerbets!
+            </div>
+
+            <!-- Botão de Download do PDF -->
+            <a href="secreto.pdf" class="download-button" download>Baixar PDF</a>
+
+            <!-- Anúncios -->
+            <div class="advertisement-container">
+                <div class="advertisement">
+                    <a href="https://media1.placard.co.mz/redirect.aspx?pid=2197&bid=1590" target="_blank" rel="nofollow">
+                        <img src="https://media1.placard.co.mz/renderimage.aspx?pid=2197&bid=1590" alt="Anúncio 1">
+                    </a>
+                    <p>Descubra o melhor de Moçambique! Ganhe com a PLACARD e o Hackerbets.</p>
+                </div>
+                <div class="advertisement">
+                    <script type="text/javascript" src="https://js.elephantbet.com/javascript.php?prefix=Z2Q62Jvc9OgWqcfzuvZcQGNd7ZgqdRLk&amp;media=26&amp;campaign=1"></script>
+                    <p>Seja um vencedor com a ELEPHANTBet e o Hackerbets! Descubra como agora.</p>
+                </div>
+                <div class="advertisement">
+                    <a href="https://www.betway.co.mz/?btag=P103914-PR25975-CM84649-TS1995744&" target="_blank" rel="nofollow">
+                        <img src="https://secure.betwaypartnersafrica.com/imagehandler/ddae409b-1536-4de0-9cd6-92034b31cf89/" alt="Anúncio 2">
+                    </a>
+                    <p>Ganhe grande com a Hackerbets e a Betway! Não perca as melhores chances de ganhar.</p>
+                </div>
+            </div>
         </section>
     </div>
 
