@@ -107,7 +107,7 @@
           localStorage.removeItem('saldoNumerico');
 
           // Salvar informações adicionais do usuário no Realtime Database
-          const contaRef = firebase.database().ref('users/' + user.uid);
+         
           const contaRef = firebase.database().ref('Conta/' + user.uid);
           contaRef.set({
             nome: nome,
