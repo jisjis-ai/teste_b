@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento</title>
+  <style>
+    /* styles.css */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    .payment-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #222;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+
+    h1 {
+        color: #e50914;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .payment-details {
+        background-color: #333;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        padding: 30px;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .payment-details p {
+        color: #ccc;
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .redeem-button {
+        background-color: #e50914;
+        color: #fff;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 18px;
+    }
+
+    .redeem-button:hover {
+        background-color: #c20811;
+    }
+
+    .instructions {
+        margin-top: 30px;
+        font-size: 16px;
+        color: #ccc;
+        text-align: left;
+    }
+  </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Realizar Pagamento</h1>
+        <div class="payment-details">
+            <p><strong>E-mola</strong></p>
+            <p>Número: 876219853</p>
+            <p>Nome: Joaquim Inácio</p>
+        </div>
+        <div class="payment-details">
+            <p><strong>M-pesa</strong></p>
+            <p>Número: 858108052</p>
+            <p>Nome: Dinilson</p>
+        </div>
+        <button class="redeem-button" onclick="resgatar()">Resgatar</button>
+        <div class="instructions">
+            <p>Após transferir o valor para uma das contas acima, clique no botão "Resgatar" para solicitar a sua conta Premium.</p>
+            <p>Assim que efetuar o pagamento, entre em contato com o número fornecido para finalizar o processo.</p>
+        </div>
+    </div>
+    <script>
+        function resgatar() {
+            window.location.href = 'https://wa.me/258876219853';
+        }
+    </script>
+</body>
+</html>
