@@ -129,6 +129,14 @@
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="js/firebase.js"></script>
+       <script src="verificarAssinatura.js"></script>
+    <script>
+        // Chama a função verificarAssinatura ao carregar a página
+        window.onload = function() {
+            verificarAssinatura();
+        };
+         <script>
+
     <script>
         // Verificar a validade da assinatura
         firebase.auth().onAuthStateChanged(function(user) {
