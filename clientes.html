@@ -96,8 +96,11 @@
         if (!user) {
           throw new Error('Usuário não autenticado.');
         }
+
         // Criar conta de usuário no Firebase Authentication
-        await firebase.auth().createUserWithEmailAndPassword(email, senha);
+        const newUserCredential = await firebase.auth().createUserWithEmailAndPassword(email, senha);
+        const newUser = newUserCredential.user;
+
         // Verificar se o saldo do revendedor é suficiente e realizar a transação
         if (saldoNumerico >= 10) {
           // Deduzir 10 do saldo atual
@@ -107,8 +110,7 @@
           localStorage.removeItem('saldoNumerico');
 
           // Salvar informações adicionais do usuário no Realtime Database
-         
-          const contaRef = firebase.database().ref('Conta/' + user.uid);
+          const contaRef = firebase.database().ref('Conta/' + newUser.uid);
           contaRef.set({
             nome: nome,
             email: email,
@@ -126,6 +128,8 @@
             validade: Math.floor(Date.now() + (7 * 24 * 60 * 60 * 1000)).toString(),
             tempo: Date.now().toString()
           });
+          
+            
 
           // Criar novo mapa com saldo atualizado e outras informações
           const novoMapa = {
@@ -139,7 +143,7 @@
           };
 
           // Enviar para o banco de dados do revendedor
-          const revendedorRef = firebase.database().ref('REVENDEDOR/' + user.uid);
+          const revendedorRef = firebase.database().ref('REVENDEDOR/' + User.uid);
           revendedorRef.set(novoMapa);
 
           // Exibir diálogo de sucesso
