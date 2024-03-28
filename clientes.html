@@ -107,20 +107,21 @@
           localStorage.removeItem('saldoNumerico');
 
           // Salvar informações adicionais do usuário no Realtime Database
+          const contaRef = firebase.database().ref('users/' + user.uid);
           const contaRef = firebase.database().ref('Conta/' + user.uid);
           contaRef.set({
             nome: nome,
             email: email,
             senha: senha,
-            tipo: "Premium",
+            tipo: "PREMIUM",
             dia: 7,
-            status: "",
-            ban: "",
+            status: "true",
+            ban: "false",
             visto: "",
-            log: "",
-            bot: "",
+            log: "0",
+            bot: "1",
             saldo: novoSaldo, // Atualizar saldo com o novo valor
-            entrar: "",
+            entrar: "pode entrar",
             uid: user.uid,
             validade: Math.floor(Date.now() + (7 * 24 * 60 * 60 * 1000)).toString(),
             tempo: Date.now().toString()
