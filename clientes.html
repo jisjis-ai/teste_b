@@ -14,6 +14,21 @@
     <label for="saldo">Saldo do Revendedor:</label>
     <span id="saldo"></span>
   </div>
+  <div id="anuncio">
+    <img src="1.jpg" alt="Imagem de um gráfico mostrando o crescimento do número de clientes">
+  
+    <h2>Quer mais créditos para adicionar novos clientes?</h2>
+  
+    <h3>Fale com o suporte hoje e ganhe 10% de desconto!</h3>
+  
+    <p>Aproveite esta oferta por tempo limitado e aumente sua base de clientes.</p>
+  
+    <a href="https://wa.me/258876219853" class="botao">Falar com suporte</a>
+  </div>
+  
+  
+
+
   <form id="signup-form" style="display: none;">
     <div>
       <label for="nome">Nome:</label>
@@ -40,14 +55,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="js/firebase.js"></script>
-    <script src="verificarAssinatura.js"></script>
-<script>
-    window.onload = function() {
-        verificarAssinatura();
-    };
-</script>
-
-
   <script>
     async function checkRevendedor() {
       try {
@@ -100,72 +107,8 @@
       const saldoNumerico = Number(localStorage.getItem('saldoNumerico'));
 
       try {
-        const user = firebase.auth().currentUser;
-        if (!user) {
-          throw new Error('Usuário não autenticado.');
-        }
-
-        // Criar conta de usuário no Firebase Authentication
-        const newUserCredential = await firebase.auth().createUserWithEmailAndPassword(email, senha);
-        const newUser = newUserCredential.user;
-
-        // Verificar se o saldo do revendedor é suficiente e realizar a transação
-        if (saldoNumerico >= 10) {
-          // Deduzir 10 do saldo atual
-          const novoSaldo = saldoNumerico - 10;
-
-          // Limpar dados da conta anterior
-          localStorage.removeItem('saldoNumerico');
-
-          // Salvar informações adicionais do usuário no Realtime Database
-          const contaRef = firebase.database().ref('Conta/' + newUser.uid);
-          contaRef.set({
-            nome: nome,
-            email: email,
-            senha: senha,
-            tipo: "PREMIUM",
-            dia: 7,
-            status: "true",
-            ban: "false",
-            visto: "",
-            log: "0",
-            bot: "1",
-            saldo: novoSaldo, // Atualizar saldo com o novo valor
-            entrar: "pode entrar",
-            uid: user.uid,
-            validade: Math.floor(Date.now() + (7 * 24 * 60 * 60 * 1000)).toString(),
-            tempo: Date.now().toString()
-          });
-          
-            
-
-          // Criar novo mapa com saldo atualizado e outras informações
-          const novoMapa = {
-            m:novoSaldo,
-            MZN: "0",
-            cadastros: "0",
-            email: email,
-            nome: nome,
-            Uid: user.uid,
-            Yea: "0"
-          };
-
-          // Enviar para o banco de dados do revendedor
-          const revendedorRef = firebase.database().ref('REVENDEDOR/' + User.uid);
-          revendedorRef.set(novoMapa);
-
-          // Exibir diálogo de sucesso
-          Swal.fire({
-            icon: 'success',
-            title: 'Sucesso!',
-            text: `Nova conta criada com sucesso! Seu novo saldo é ${novoSaldo}.`,
-            showConfirmButton: false,
-            timer: 2000
-          });
-
-          // Limpar o formulário após o sucesso
-          form.reset();
-        } else {
+        // Verificar se o saldo do revendedor é suficiente
+        if (saldoNumerico < 10) {
           // Saldo insuficiente, exibir mensagem
           Swal.fire({
             title: 'Saldo Insuficiente',
@@ -173,7 +116,52 @@
             icon: 'error',
             confirmButtonText: 'OK'
           });
+          return; // Encerrar a função
         }
+
+        // Deduzir 10 do saldo atual do revendedor
+        const novoSaldoRevendedor = saldoNumerico - 10;
+
+        // Atualizar saldo do revendedor no banco de dados
+        const user = firebase.auth().currentUser;
+        const revendedorRef = firebase.database().ref('REVENDEDOR/' + user.uid + '/m');
+        revendedorRef.set(novoSaldoRevendedor);
+
+        // Criar conta de usuário no Firebase Authentication
+        const newUserCredential = await firebase.auth().createUserWithEmailAndPassword(email, senha);
+        const newUser = newUserCredential.user;
+
+        // Salvar informações adicionais do usuário no Realtime Database
+        const contaRef = firebase.database().ref('Conta/' + newUser.uid);
+        contaRef.set({
+          nome: nome,
+          'e-mail': email,
+          senha: senha,
+          tipo: "PREMIUM",
+          dia: 7,
+          status: "true",
+          ban: "false",
+          visto: "",
+          log: "0",
+          bot: "1",
+          saldo: 250, // Definir saldo inicial da nova conta como 0
+          entrar: "pode entrar",
+          uid: newUser.uid,
+          validade: Math.floor(Date.now() + (7 * 24 * 60 * 60 * 1000)).toString(),
+          tempo: Date.now().toString()
+        });
+
+        // Exibir diálogo de sucesso
+        Swal.fire({
+          icon: 'success',
+          title: 'Sucesso!',
+          text: `Nova conta criada com sucesso! Seu novo saldo é ${novoSaldoRevendedor}.`,
+          showConfirmButton: false,
+          timer: 2000
+        });
+
+        // Limpar o formulário após o sucesso
+        form.reset();
       } catch (error) {
         alert('Erro ao criar conta: ' + error.message);
       }
@@ -181,3 +169,4 @@
   </script>
 </body>
 </html>
+
