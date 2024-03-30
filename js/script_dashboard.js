@@ -1,7 +1,7 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     const uid = user.uid;
-    const usuarioRef = firebase.database().ref('users/' + uid);
+    const usuarioRef = firebase.database().ref('Conta/' + uid);
 
     usuarioRef.once('value').then(function(snapshot) {
       const nome = snapshot.val().nome;
