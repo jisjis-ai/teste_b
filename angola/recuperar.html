@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('images/imagem.jpg');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .top {
+            margin-bottom: 20px;
+        }
+
+        header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .input-field {
+            margin-bottom: 15px;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .submit {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: #8e44ad;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .submit:hover {
+            background-color: #6c3483;
+        }
+
+        .two-col {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        label {
+            color: #333;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #8e44ad;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="container">
+            <div class="top">
+                <span>Esqueceu a senha?</span>
+                <header>Recuperar Senha</header>
+            </div>
+
+            <div class="input-field">
+                <input type="text" class="input" placeholder="Seu Email" id="email">
+            </div>
+
+            <div class="input-field">
+                <input type="submit" class="submit" value="Enviar Link de Redefinição" id="resetPasswordBtn">
+            </div>
+
+            <div class="two-col">
+                <div class="two">
+                    <label onclick="window.location.href = 'login.html'"><a href="#">Voltar para o Login</a></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>  
+    <script src="js/firebase.js"></script>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const resetPasswordBtn = document.getElementById('resetPasswordBtn');
+
+        resetPasswordBtn.addEventListener('click', function() {
+            const email = emailInput.value;
+
+            // Enviar um link de redefinição de senha para o email fornecido
+            firebase.auth().sendPasswordResetEmail(email)
+                .then(function() {
+                    // Link de redefinição de senha enviado com sucesso
+                    alert("Um link de redefinição de senha foi enviado para o seu email. Por favor, verifique sua caixa de entrada e siga as instruções para redefinir sua senha.");
+                    // Redirecionar o usuário para a página de login
+                    window.location.href = "login.html";
+                })
+                .catch(function(error) {
+                    // Ocorreu um erro ao enviar o link de redefinição de senha
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error('Erro ao enviar link de redefinição de senha:', errorCode, errorMessage);
+                    alert("Ocorreu um erro ao enviar o link de redefinição de senha. Por favor, verifique o endereço de email e tente novamente.");
+                });
+        });
+    </script>
+</body>
+</html>

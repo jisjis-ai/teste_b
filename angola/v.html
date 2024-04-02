@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="stylees.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Conteúdo -->
+    <div id="content">
+        <!-- Seção Home -->
+        <section id="home-section">
+            <h2 style="color: #001836;">Home</h2>
+            <div class="user-info" style="color: #001836;">
+                <div class="email">Email: <span id="email"></span></div>
+                <button id="logout-btn" style="background-color: #001836; color: white;">Deslogar</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Navegação -->
+    <nav id="footer-nav">
+        <ul>
+            <li><a href="#" id="home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="bots.html" id="bots"><i class="fas fa-robot"></i> Bots</a></li>
+            <li><a href="perfil.html" id="perfil"><i class="fas fa-user"></i> Perfil</a></li>
+        </ul>
+    </nav>
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="js/firebase.js"></script>
+    <script>
+    // Verificar a validade da assinatura
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            firebase.database().ref('Conta/' + user.uid).once('value').then(function(snapshot) {
+                var validade = snapshot.val().validade;
+                var currentTime = new Date().getTime();
+                if (parseFloat(validade) > currentTime) {
+                    // Assinatura válida
+                    // Carregar PDF quando o DOM estiver pronto
+                    document.addEventListener('DOMContentLoaded', function() {
+                        carregarPDF('secreto.pdf');
+                    });
+
+                    function carregarPDF(nomeArquivo) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('GET', nomeArquivo, true);
+                        xhr.responseType = 'blob';
+                        xhr.onload = function(e) {
+                            if (this.status == 200) {
+                                var blob = new Blob([this.response], { type: 'application/pdf' });
+                                var objectURL = URL.createObjectURL(blob);
+                                var embed = document.createElement('embed');
+                                embed.src = objectURL;
+                                embed.width = '100%';
+                                embed.height = '600px';
+                                document.body.appendChild(embed);
+                            }
+                        };
+                        xhr.send();
+                    }
+                } else {
+                    // Assinatura expirada
+                    var dialog = document.createElement('div');
+                    dialog.id = 'dialog';
+                    dialog.innerHTML = '<p>Sua assinatura expirou. Por favor, renove sua assinatura para continuar utilizando.</p>';
+                    document.body.appendChild(dialog);
+                    document.body.style.overflow = 'hidden'; // Impede que o usuário role a página
+                }
+            }).catch(function(error) {
+                console.log(error.message);
+            });
+
+            // Exibir o email do usuário
+            var userEmail = user.email;
+            document.getElementById('email').innerText = userEmail;
+
+            // Botão de logout
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                firebase.auth().signOut().then(function() {
+                    // Logout bem sucedido
+                    window.location.replace("login.html"); // Redirecionar para a página de login
+                }).catch(function(error) {
+                    console.log(error.message);
+                });
+            });
+        } else {
+            // Usuário não autenticado, redirecionar para a página de login
+            window.location.replace("login.html");
+        }
+    });
+    </script>
+</body>
+</html>

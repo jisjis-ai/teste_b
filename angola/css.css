@@ -1,0 +1,29 @@
+#userInfo {
+    font-size: 18px;
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+  
+  /* Defina o tempo que deseja que a mensagem permaneça visível (em milissegundos) */
+  #userInfo.active {
+    display: block;
+    animation: fadeOut 5s ease-in-out forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
+  

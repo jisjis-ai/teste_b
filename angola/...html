@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVIATOR-HACKER</title>
+     <link rel="icon" type="image/png" href="logo.png">
+    <meta property="og:title" content="AVIATOR-HACKER">
+    <meta property="og:description" content="App created with React. Our app is powered by...">
+    <meta property="og:image" content="https://im.ge/i/PIl8kp">
+    <meta property="og:url" content="https://maind3kcjvj4ignt41amplifyapp.vercel.app/">
+    <link rel="stylesheet" type="text/css" href="indexs.css">
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <style>
+        /* Additional styles for images and animation */
+        #contentContainer {
+            text-align: center;
+        }
+
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-container:hover {
+            transform: rotate(360deg);
+        }
+
+        #selectedGame {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+
+    
+
+        body {
+            background-color: #282c34;
+            color: white;
+            font-family: "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+       
+        }
+
+        #contentContainer {
+            text-align: center;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-container {
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-container:hover {
+            transform: rotate(360deg);
+        }
+
+        #selectedGame {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        #chooseGamePrompt {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        #logoutBtn {
+            background-color: #61dafb;
+            color: #282c34;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        #logoutBtn:hover {
+            background-color: #4fa3d1;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="userInfo">
+        Bem-vindo, <span id="userName"></span>!
+    </div>
+
+    <div id="contentContainer" style="display: block;">
+        <div id="chooseGamePrompt">Escolha um jogo:</div>
+
+        <div class="image-container" onclick="openGame('bots.html')">
+            <img src="aviator.jpg" alt="Imagem Aviator" width="200" height="200">
+        </div>
+
+        <div class="image-container" onclick="openGame('mines.html')">
+            <img src="mines.jpg" alt="Imagem Mines" width="200" height="200">
+        </div>
+
+        <div class="image-container" onclick="openGame('spaceman.html')">
+            <img src="spaceman.jpg" alt="Imagem Spaceman" width="200" height="200">
+        </div>
+
+        <!-- Botão de Logout -->
+        <button id="logoutBtn">Logout</button>
+    </div>
+
+    <!-- Importar o arquivo JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/admin.js"></script>
+     <script src="verificaEntrou.js"></script>
+    <script src="js/script_dashboard.js"></script>
+    <script src="index.js"></script>
+
+    <script>
+        // Adicione o código JavaScript aqui
+        function openGame(gamePage) {
+            window.location.href = gamePage;
+        }
+    </script>
+
+    <script>
+        // Botão de Logout
+        document.getElementById('logoutBtn').addEventListener('click', function () {
+            // Adicione o código de logout aqui
+        });
+    </script>
+
+    <script>
+        // Adicione o código JavaScript restante aqui
+        let gameOrder = ['aviator.html', 'mines.html', 'spaceman.html'];
+        let currentIndex = 0;
+
+        function selectGame(gamePage) {
+            if (gamePage === gameOrder[currentIndex]) {
+                document.getElementById('selectedGame').innerHTML = `Selected Game: ${currentIndex + 1}`;
+                currentIndex = (currentIndex + 1) % gameOrder.length;
+            } else {
+                document.getElementById('selectedGame').innerHTML = 'Wrong game selected. Try again.';
+            }
+        }
+
+        // ... (the rest of your existing JavaScript code)
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9447660499887398"
+     crossorigin="anonymous"></script>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVIATOR-HACKER</title>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="AVIATOR-HACKER">
+    <meta property="og:description" content="App created with react. Our app is powered the.....">
+    <meta property="og:image"https://telegra.ph/file/289803b17923622879ea7.jpg">
+    <meta property="og:url" content="https://maind3kcjvj4ignt41amplifyapp.vercel.app/">
+     <link rel="stylesheet" type="text/css" href="indexs.css">
+     <link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+    <div id="userInfo">
+      Bem-vindo, <span id="userName"></span>!
+    </div>
+
+    <div id="contentContainer" style="display: none;">
+        <div class="form-select">
+            <p>Escolha a sua Casa de Apostas<p>
+            <select>
+                <option>elphant Bet</option>
+                <option>888 Bet</option>
+                <option>JOGA Bet</option>
+                <option>OLÁ. Bet</option>
+                <option>Bet way</option>
+                <option>Bet ika</option>
+                <option>Pla  card</option>
+            </select>
+            
+            <p>Selecione o Número de Previsões</p>
+            <select id="selectNumber">
+                <option value="20">20</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="80">80</option>
+            </select>
+            
+            <div class="btn-math">
+                <button class="btn" type="button" id="btnAdicionar">Gerar</button>
+            </div>
+           
+            <p style="text-align: center;">_____________Resultados da Busca_____________</p>
+            <ul id="lista2"></ul>
+            
+            <p style="text-align: center;">________Conjunção de Dados Semanais________</p>
+            <ul id="lista1"></ul>
+
+            <!-- Botão de Logout -->
+            <button id="logoutBtn">Logout</button>
+        </div>
+
+        <!-- Importar o arquivo JavaScript -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>  
+        <script src="js/firebase.js"></script>
+        <script src="js/admin.js"></script>
+         <script src="verificaEntrou.js"></script>
+<script src="verificarAssinatura.js"></script>
+<script>
+    window.onload = function() {
+        verificarAssinatura();
+    };
+</script>
+
+    
+        <script src="js/script_dashboard.js"></script>
+        <script src="index.js"></script>
+        
+        <script>
+            // Adicione o código JavaScript aqui
+            // Obtenha uma referência para o botão de logout
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            // Adicione um ouvinte de evento de clique ao botão de logout
+            logoutBtn.addEventListener('click', () => {
+                // Realiza o logout do usuário usando o Firebase Authentication
+                firebase.auth().signOut()
+                    .then(() => {
+                        // Logout bem-sucedido
+                        console.log('Usuário deslogado com sucesso');
+                        // Você pode redirecionar o usuário para a página de login ou executar outras ações aqui
+                    })
+                    .catch((error) => {
+                        // Ocorreu um erro durante o logout
+                        console.error('Erro ao fazer logout:', error);
+                    });
+            });
+        </script>
+    </div>
+</body>
+</html>

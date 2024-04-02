@@ -1,0 +1,36 @@
+#saldo-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #saldo-container {
+    display: none;
+    margin-top: 10px;
+  }
+  
+  #nome-aleatorio {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    animation: fadein 2s, fadeout 2s 5s;
+  }
+  
+  @keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 10px; opacity: 1; }
+  }
+  
+  @keyframes fadeout {
+    from { bottom: 10px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
+  }
+  
