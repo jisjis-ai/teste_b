@@ -35,9 +35,6 @@
                     <i class="fas fa-futbol"></i>
                     <p>Conteúdo</p>
                 </div>
-
-
-
                 <div class="info-item">
                     <i class="fas fa-users"></i>
                     <a href="clientes.html">
@@ -48,14 +45,11 @@
                     <p>Definições</p>
                 </div>
             </div>
+
+            <!-- Botão Sair -->
+            <button id="logout-button">Sair</button>
         </section>
     </div>
-
-
-
-
-
-
 
     <!-- Navegação -->
     <nav id="footer-nav">
@@ -66,18 +60,28 @@
         </ul>
     </nav>
 
- 
+    <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="js/firebase.js"></script>
-     <script src="verificarAssinatura.js"></script>
-<script>
-    window.onload = function() {
-        verificarAssinatura();
-    };
-</script>
+    <script src="verificarAssinatura.js"></script>
+    <script>
+        window.onload = function() {
+            verificarAssinatura();
+        };
 
+        // Logout
+        document.getElementById('logout-button').addEventListener('click', function() {
+            firebase.auth().signOut().then(function() {
+                // Logout bem-sucedido
+                window.location.href = 'index.html'; // Redirecionar para a página de login ou outra página inicial
+            }).catch(function(error) {
+                // Tratar erros de logout, se houver
+                console.error('Erro ao fazer logout:', error);
+            });
+        });
+    </script>
 
     <script src="perfil.js"></script>
 </body>
