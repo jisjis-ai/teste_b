@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9447660499887398"
+     crossorigin="anonymous"></script>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVIATOR-HACKER</title>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="AVIATOR-HACKER">
+    <meta property="og:description" content="App created with react. Our app is powered the.....">
+    <meta property="og:image"logo.png">
+    <meta property="og:url" content="https://maind3kcjvj4ignt41amplifyapp.vercel.app/">
+     <link rel="stylesheet" type="text/css" href="indexs.css">
+     <link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+    <div id="userInfo">
+      Bem-vindo, <span id="userName"></span>!
+    </div>
+
+    <div id="contentContainer" style="display: none;">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>elphantbet | Mines</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="layout.css" />
+    <link rel="stylesheet" href="mines.css" />
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="mines-container">
+        <div class="recomended">
+            Tentativas recomendadas: &nbsp;<span class="recomended-span">3</span>
+        </div>
+        <img src="alert.png" alt="" class="alert-mines" />
+        <div class="floating-button">GERAR ENTRADA</div>
+    </div>
+
+    <div class="iframe-container">
+        <div class="spinner-container">
+            Carregando casa...
+            <div class="spinner"></div>
+        </div>
+        <iframe
+            class="iframe-embed"
+            id="iframe-mines"
+            src="https://record.elephantbet.com/_Z2Q62Jvc9OjKto_EPcZApGNd7ZgqdRLk/1/"
+            frameborder="0"
+        ></iframe>
+    </div>
+
+
+    </div>
+
+    <!-- Importar o arquivo JavaScript -->
+    <script src="../codigo/index2.js"></script>
+    <script src="mines.js"></script>
+    <script src="../codigo/injectconfig2.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="js/firebase.js"></script>
+  <script src="verificarAssinatura.js"></script>
+<script>
+    window.onload = function() {
+        verificarAssinatura();
+    };
+</script>
+
+    <script src="js/admin.js"></script>
+     <script src="verificaEntrou.js"></script>
+    <script src="js/script_dashboard.js"></script>
+    <script src="index.js"></script>
+
+    <script>
+        // Adicione o código JavaScript aqui
+        function openGame(gamePage) {
+            window.location.href = gamePage;
+        }
+    </script>
+
+    <script>
+        // Botão de Logout
+        document.getElementById('logoutBtn').addEventListener('click', function () {
+            // Adicione o código de logout aqui
+        });
+    </script>
+
+    <script>
+        // Adicione o código JavaScript restante aqui
+        let gameOrder = ['aviator.html', 'mines.html', 'spaceman.html'];
+        let currentIndex = 0;
+
+        function selectGame(gamePage) {
+            if (gamePage === gameOrder[currentIndex]) {
+                document.getElementById('selectedGame').innerHTML = `Selected Game: ${currentIndex + 1}`;
+                currentIndex = (currentIndex + 1) % gameOrder.length;
+            } else {
+                document.getElementById('selectedGame').innerHTML = 'Wrong game selected. Try again.';
+            }
+        }
+
+        // ... (the rest of your existing JavaScript code)
+    </script>
+</body>
+</html>
+
+
+
+

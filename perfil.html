@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="content">
+        <!-- Seção Perfil -->
+        <section id="perfil-section">
+            <div class="profile-info">
+                <i class="fas fa-user-circle fa-5x"></i>
+                <div class="user-details">
+                    <h2 id="user-name">Nome do Usuário</h2>
+                    <p id="account-type">Tipo de Conta: Premium</p>
+                    <p id="access-days">7 dias</p>
+                    <button id="blue-button">AVIATOR-HACKERv9</button>
+                </div>
+            </div>
+            
+            <!-- Outras Seções de Informações -->
+            <div id="other-info">
+                <div class="info-item">
+                    <i class="fas fa-user"></i>
+                    <p>Informações</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <p>Pagamentos</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-futbol"></i>
+                    <p>Conteúdo</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-users"></i>
+                    <a href="clientes.html">
+                    <p>Clientes</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-cog"></i>
+                    <p>Definições</p>
+                </div>
+            </div>
+
+            <!-- Botão Sair -->
+            <button id="logout-button">Sair</button>
+        </section>
+    </div>
+
+    <!-- Navegação -->
+    <nav id="footer-nav">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-robot"></i> Bots</a></li>
+            <li><a href="#"><i class="fas fa-user"></i> Perfil</a></li>
+        </ul>
+    </nav>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="verificarAssinatura.js"></script>
+    <script>
+        window.onload = function() {
+            verificarAssinatura();
+        };
+
+        // Logout
+        document.getElementById('logout-button').addEventListener('click', function() {
+            firebase.auth().signOut().then(function() {
+                // Logout bem-sucedido
+                window.location.href = 'index.html'; // Redirecionar para a página de login ou outra página inicial
+            }).catch(function(error) {
+                // Tratar erros de logout, se houver
+                console.error('Erro ao fazer logout:', error);
+            });
+        });
+    </script>
+
+    <script src="perfil.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+/* Estilo geral da página */
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+/* Cabeçalho */
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Botão para revendedores */
+
+#saldo-button {
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Container do saldo */
+
+#saldo-container {
+  display: none;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#saldo-container label {
+  font-weight: bold;
+}
+
+#saldo {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+/* Formulário de criação de conta */
+
+#signup-form {
+  display: none;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#signup-form div {
+  margin-bottom: 10px;
+}
+
+#signup-form label {
+  font-weight: bold;
+}
+
+#signup-form input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#signup-form button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos específicos para o tipo de conta */
+
+#rdbConta {
+  margin-right: 10px;
+}
+
+/* Media queries para responsividade */
+
+@media (max-width: 768px) {
+  #signup-form {
+    width: 90%;
+  }
+}
+
+#anuncio {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#anuncio h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#anuncio h3 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+#anuncio p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+#anuncio img {
+  display: block;
+  margin: 0 auto;
+  max-width: 10%;
+}
+
+#anuncio a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #000;
+  cursor: pointer;
+}
+
+#anuncio a:hover {
+  background-color: #333;
+}
+
+@media (max-width: 80px) {
+  #anuncio {
+    width: 50%;
+  }
+}
