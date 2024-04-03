@@ -164,6 +164,27 @@
           button:nth-child(odd) {
             animation: pulse 2s infinite;
           }
+
+
+          .borda {
+        border: 3px solid #3498db;
+        border-radius: 10px;
+        padding: 20px;
+        width: fit-content;
+        animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.05);
+        }
+    }
+
+
+
         </style>
         <script>
      document.addEventListener('DOMContentLoaded', function() {
@@ -190,12 +211,16 @@
           <button data-ref="aviator"><span>Aviator Hacker 007</span></button>
           <button data-ref="mines"><span>Bot de Minas</span></button>
             <button data-ref="sala_vip_strack-bot"><span>Strack-bot aviator</span></button>
+            <div class="borda">
+              <buttons id="botaoAngola">Bots para Angola</buttons>
+          </div>
+         
+
+
         </div>
       </body>
       </html>
       
-
-
 
 
 
@@ -220,6 +245,16 @@
         <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>  
         <script src="js/firebase.js"></script>
            <script src="verificarAssinatura.js"></script>
+           
+           
+           <script>
+            document.getElementById("botaoAngola").addEventListener("click", function() {
+                // Aqui você pode redirecionar o usuário para a pasta "angola/index.html"
+                window.location.href = "angola/bots.html";
+            });
+            </script>
+
+
     <script>
         // Chama a função verificarAssinatura ao carregar a página
         window.onload = function() {
