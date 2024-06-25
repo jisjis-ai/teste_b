@@ -1,0 +1,84 @@
+<style>
+    /* Estilos gerais da página */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #062858; /* Cor de fundo */
+        color: white; /* Cor do texto geral */
+    }
+
+    /* Container principal */
+    #container-home {
+        text-align: center;
+        background-color: #0c0808; /* Cor de fundo do container */
+        border-radius: 8px; /* Cantos arredondados */
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    }
+
+    /* Estilos para seleção e botão */
+    .form-select select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #0080ff; /* Borda cinza */
+        border-radius: 4px;
+        margin-bottom: 10px;
+        outline: none;
+        background-color: transparent;
+        color: #000000;
+    }
+
+    .btn-math {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .btn-math .btn {
+        width: 100px;
+        height: 40px;
+        background-color: rgb(0, 0, 0); /* Cor de fundo branca */
+        outline: none;
+        border: 2px solid #0080ff; /* Borda cinza */
+        color:  #0381ff; /* Texto em cinza */
+        font-size: 18px;
+        margin-left: 10px; /* Espaço entre o botão e a seleção */
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    /* Estilização para as listas */
+    #lista1, #lista2 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    #lista1 li, #lista2 li {
+        flex-basis: calc(25% - 16px);
+        margin: 4px;
+        padding: 8px;
+        box-sizing: border-box;
+        text-align: center;
+        font-weight: bold;
+        background-color: #e90707; /* Cor de fundo roxa */
+        color: #fff; /* Texto branco */
+        border-radius: 4px;
+    }
+
+    /* Estilização para o texto rosa */
+    .rosa {
+        color: #260486; /* Cor de texto rosa */
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>

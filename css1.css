@@ -1,0 +1,40 @@
+#userInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+#userInfo h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+#userInfo p {
+  font-size: 16px;
+  color: #777;
+}
+
+#userInfo button {
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#userInfo button#premiumButton {
+  background-color: #fff; /* Fundo branco para o botão "Ser Premium" */
+  color: #0074d9; /* Texto azul para o botão "Ser Premium" */
+  border: 2px solid #0074d9; /* Borda azul para o botão "Ser Premium" */
+}
+
+#userInfo button#connectButton {
+  background-color: #0074d9; /* Fundo azul para o botão "Conecte-se" */
+  color: #fff;
+}
+
+#userInfo button:hover {
+  background-color: #0056b3;
+}

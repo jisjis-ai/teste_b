@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVIATOR-HACKER</title>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="AVIATOR-HACKER">
+    <meta property="og:description" content="App created with react. Our app is powered the.....">
+    <meta property="og:image"logo.png">
+    <meta property="og:url" content="https://maind3kcjvj4ignt41amplifyapp.vercel.app/">
+     <link rel="stylesheet" type="text/css" href="indexs1.css">
+     <link rel="stylesheet" type="text/css" href="css1.css">
+</head>
+<body>
+    <div id="userInfo">
+        <link rel="stylesheet" type="text/css" href="css1.css">
+        <h1>Bem-vindo, cliente!</h1>
+        <p>Você está na versão teste <span id="userName">Usuário Teste</span>.</p>
+    
+        <!-- Botão para ser premium -->
+        <button onclick="window.location.href = 'premium.html';">Ser Premium</button>
+    
+        <!-- Botão para conectar-se -->
+        <button onclick="window.location.href = 'login.html';">Conecte-se</button>
+    </div>
+      
+    </div>
+
+
+		<!DOCTYPE html>
+		<html>
+		
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<style>
+				/* Estilos para o botão externo */
+				.custom-button {
+					position: relative;
+					background-color: rgb(130, 214, 19);
+					border: 2px solid rgb(20, 167, 64);
+					padding: 10px 20px;
+					border-radius: 10px;
+					display: flex;
+					align-items: center;
+					justify-content: center; /* Centraliza os elementos horizontalmente */
+				}
+		
+				/* Estilos para o botão interno (rosa) */
+				.inner-button {
+					background-color: rgb(196, 10, 41);
+					color: rgb(255, 255, 255);
+					border: none;
+					padding: 10px 20px;
+					border-radius: 10px;
+				}
+		
+				/* Estilos para o texto no botão interno */
+				.inner-button-text {
+					font-size: 16px; /* Tamanho de texto maior */
+					font-weight: bold; /* Texto em negrito */
+				}
+		
+				/* Estilos para o texto no botão externo */
+				.purple-text {
+					color: rgb(0, 0, 0);
+					margin-right: 10px; /* Espaço à direita para separar do texto interno */
+				}
+		
+				/* Estilos para o cabeçalho com o logotipo */
+				header {
+					background-color: #3498db;
+					padding: 10px;
+					text-align: center;
+				}
+		
+				/* Estilos para o logotipo */
+				.logo {
+					max-width: 200px; /* Ajuste o tamanho máximo conforme necessário */
+					height: auto;
+				}
+		
+				/* Estilos para o relógio no canto superior esquerdo */
+				#clock {
+					position: absolute;
+					top: 10px;
+					left: 10px;
+					color: rgb(255, 0, 43);
+					font-size: 18px;
+					font-weight: bold;
+				}
+		
+				/* Estilos para a data abaixo da hora */
+				#date {
+					position: absolute;
+					top: 40px; /* Ajuste a posição vertical conforme necessário */
+					left: 10px; /* Ajuste a posição horizontal conforme necessário */
+					color: rgb(255, 0, 43);
+					font-size: 16px;
+				}
+			</style>
+			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> <!-- Adicione a biblioteca SweetAlert2 -->
+		</head>
+		
+		<body>
+			<!-- Botão para abrir o diálogo personalizado -->
+			<button id="openDialogButton">como usar?</button>
+		
+			<div class="custom-button">
+				<span id="clock">00:00:00</span>
+				<span id="date">01/01/1970</span> <!-- Elemento para exibir a data -->
+				<span class="purple-text">Possível</span>
+				<span id="dynamicText">Aguarde...</span>
+				<!-- Botão interno com fundo rosa -->
+				<button class="inner-button">
+					<span class="inner-button-text" id="marketState">Estado do Mercado</span>
+		
+
+
+				</button>
+				
+
+
+
+			</div>
+		
+			<iframe src="https://media1.placard.co.mz/redirect.aspx?pid=2197&bid=1514" width="100%" height="1000"></iframe>
+		
+		
+			<script>
+				// Função para atualizar o relógio
+				function updateClock() {
+					const clockElement = document.getElementById("clock");
+					const dateElement = document.getElementById("date");
+					const now = new Date();
+					const hours = now.getHours().toString().padStart(2, "0");
+					const minutes = now.getMinutes().toString().padStart(2, "0");
+					const seconds = now.getSeconds().toString().padStart(2, "0");
+					const day = now.getDate().toString().padStart(2, "0");
+					const month = (now.getMonth() + 1).toString().padStart(2, "0"); // +1 porque janeiro é 0
+					const year = now.getFullYear();
+					clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+					dateElement.textContent = `${day}/${month}/${year}`;
+				}
+		
+				// Atualize o relógio a cada segundo
+				setInterval(updateClock, 1000);
+		
+				// Chame a função inicialmente para exibir a hora atual
+				updateClock();
+			</script>
+            <button id="logoutBtn">Logout</button>
+        </div>
+
+        <script>
+            // Aqui você pode definir o nome do usuário dinamicamente, se tiver essa informação disponível
+            document.getElementById('userName').innerText = 'Usuário Teste'; // Substitua 'Usuário Teste' pelo nome real do usuário, se possível
+        
+            // Outra opção, se tiver um nome de usuário disponível no JavaScript
+            // var userName = 'Nome do Usuário';
+            // document.getElementById('userName').innerText = userName;
+          </script>
+
+
+		<script src="winer1.js"></script>
+        <script src="index.js"></script>
+        
+        <script>
+            // Adicione o código JavaScript aqui
+            // Obtenha uma referência para o botão de logout
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            // Adicione um ouvinte de evento de clique ao botão de logout
+            logoutBtn.addEventListener('click', () => {
+                // Realiza o logout do usuário usando o Firebase Authentication
+                firebase.auth().signOut()
+                    .then(() => {
+                        // Logout bem-sucedido
+                        console.log('Usuário deslogado com sucesso');
+                        // Você pode redirecionar o usuário para a página de login ou executar outras ações aqui
+                    })
+                    .catch((error) => {
+                        // Ocorreu um erro durante o logout
+                        console.error('Erro ao fazer logout:', error);
+                    });
+            });
+        </script>
+    </div>
+</body>
+</html>
